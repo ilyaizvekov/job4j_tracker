@@ -35,7 +35,7 @@ public class PointTest {
     @Test
     public void when435to716then5dot38() {
         Point a = new Point(4, 3, 5);
-        Point b = new Point(7, 1,9);
+        Point b = new Point(7, 1, 9);
         double distancePoint = a.distance3d(b);
         double expected = 5.38;
         Assert.assertEquals(expected, distancePoint, 0.01);
