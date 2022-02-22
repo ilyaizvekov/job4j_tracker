@@ -8,13 +8,10 @@ public class Max {
     }
 
     public double max(double first, double second, double third) {
-        double tmp = max(second, third);
-        return max(first, tmp);
+        return max(first, max(second, third));
     }
 
     public double max(double first, double second, double third, double fourth) {
-        double tmpFirstSecond = max(first, second);
-        double tmpThirdFourth = max(third, fourth);
-        return max(tmpFirstSecond, tmpThirdFourth);
+        return max(max(first, second), max(third, fourth));
     }
 }
