@@ -8,7 +8,6 @@ public class MagicBall {
         Scanner input = new Scanner(System.in);
         System.out.print("Я великий Оракул. Что ты хочешь узнать? ");
         String question = input.nextLine();
-        System.out.print(question);
         int answer = new Random().nextInt(3);
         if (answer == 0) {
             System.out.println("Да");
