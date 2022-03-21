@@ -33,7 +33,7 @@ public class StubInputTest {
         Tracker tracker = new Tracker();
         Item item = new Item("new item");
         tracker.add(item);
-        String[] answers = {String.valueOf(item.getId()), "deleted item"};
+        String[] answers = {String.valueOf(item.getId())};
         StartUI.deleteItem(new StubInput(answers), tracker);
         Item deleteItem = tracker.findById(item.getId());
         assertNull(deleteItem);
