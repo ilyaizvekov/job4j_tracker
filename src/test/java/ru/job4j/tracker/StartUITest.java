@@ -37,7 +37,7 @@ public class StartUITest {
     public void whenShowAllItemsActionTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item one = tracker.add(new Item(1, "test1"));
+        Item one = tracker.add(new Item("test1"));
         Input in = new StubInput(
                 new String[]{"0", String.valueOf(one.getId()), String.valueOf(one.getName()), "1"}
         );
@@ -89,7 +89,7 @@ public class StartUITest {
     public void whenFindItemByIdActionTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item one = tracker.add(new Item(1, "test1"));
+        Item one = tracker.add(new Item("test1"));
         Input in = new StubInput(
                 new String[]{"0", String.valueOf(one.getId()), "1"}
         );
