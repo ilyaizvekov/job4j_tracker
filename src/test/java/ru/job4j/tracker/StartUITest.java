@@ -23,13 +23,12 @@ public class StartUITest {
         assertThat(out.toString(), is(
                 "Menu:" + ln
                         + "0. Edit item" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
                         + "=== Edit item ===" + ln
                         + "Заявка изменена успешно." + ln
                         + "Menu:" + ln
                         + "0. Edit item" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Exit Program ===" + ln
+                        + "1. Exit" + ln
         ));
     }
 
@@ -50,12 +49,11 @@ public class StartUITest {
         assertThat(out.toString(), is(
                 "Menu:" + ln
                         + "0. Show all items" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
                         + one + ln
                         + "Menu:" + ln
                         + "0. Show all items" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Exit Program ===" + ln
+                        + "1. Exit" + ln
         ));
     }
 
@@ -76,12 +74,11 @@ public class StartUITest {
         assertThat(out.toString(), is(
                 "Menu:" + ln
                         + "0. Find items by name" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
                         + one + ln
                         + "Menu:" + ln
                         + "0. Find items by name" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Exit Program ===" + ln
+                        + "1. Exit" + ln
         ));
     }
 
@@ -102,13 +99,33 @@ public class StartUITest {
         assertThat(out.toString(), is(
                 "Menu:" + ln
                         + "0. Find item by id" + ln
-                        + "1. Exit Program" + ln
+                        + "1. Exit" + ln
                         + one + ln
                         + "Menu:" + ln
                         + "0. Find item by id" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Exit Program ===" + ln
+                        + "1. Exit" + ln
         ));
     }
 
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"7", "0"}
+        );
+        Tracker tracker = new Tracker();
+        UserAction[] actions = new UserAction[]{
+                new Exit(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                        "Menu:" + ln
+                                + "0. Exit" + ln
+                                + "Wrong input, you can select: 0 .. 0" + ln
+                                + "Menu:" + ln
+                                + "0. Exit" + ln
+                )
+        );
+    }
 }
