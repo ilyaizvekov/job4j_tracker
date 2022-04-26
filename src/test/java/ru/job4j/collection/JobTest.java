@@ -84,7 +84,7 @@ public class JobTest {
                 new Job("Alex", 0),
                 new Job("Max", 0)
         );
-        assertThat(rsl, lessThan(1));
+        assertThat(rsl, lessThan(0));
     }
 
     @Test
@@ -94,6 +94,6 @@ public class JobTest {
                 new Job("Alex", 1),
                 new Job("Max", 2)
         );
-        assertThat(rsl, lessThan(1));
+        assertThat(rsl, lessThan(0));
     }
 }
