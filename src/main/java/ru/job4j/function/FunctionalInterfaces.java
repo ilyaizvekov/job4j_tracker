@@ -9,20 +9,14 @@ import java.util.function.*;
 public class FunctionalInterfaces {
     public static void main(String[] args) {
         Map<Integer, String> map = new HashMap<>();
-        BiConsumer<Integer, String> biCon = (i, s) -> System.out.println(i + s);
-        map.put(1, "one");
-        map.put(2, "two");
-        map.put(3, "three");
-        map.put(4, "four");
-        map.put(5, "five");
-        map.put(6, "six");
-        map.put(7, "seven");
-        for (Integer key : map.keySet()) {
-            String value = map.get(key);
-            biCon.accept(key, " = " + value);
+        BiConsumer<Integer, String> biCon = (i, s) -> map.put(i, s);
+        List<String> list = List.of("one", "two", "three", "four", "five", "six", "seven");
+        int key = 1;
+        for (String index : list) {
+            biCon.accept(key++, index);
         }
 
-        BiPredicate<Integer, String> biPred = (i, s) -> i % 2 == 0 || map.get(i).length() == 4;
+        BiPredicate<Integer, String> biPred = (i, s) -> i % 2 == 0 || s.length() == 4;
         for (Integer i : map.keySet()) {
             if (biPred.test(i, map.get(i))) {
                 System.out.println("key: " + i + " value: " + map.get(i));
