@@ -7,9 +7,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.lessThan;
-import static org.junit.Assert.assertThat;
 
 public class JobTest {
 
