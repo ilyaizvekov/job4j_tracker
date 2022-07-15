@@ -19,9 +19,9 @@ public class PhoneDictionary {
     }
 
     public ArrayList<Person> find(String key) {
-        ArrayList<Person> result = new ArrayList<>();
-        Predicate<Person> combine = personPredicate(key);
-        for (Person person : persons) {
+        var result = new ArrayList<Person>();
+        var combine = personPredicate(key);
+        for (var person : persons) {
             if (combine.test(person)) {
                 result.add(person);
             }
